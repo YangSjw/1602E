@@ -59,6 +59,11 @@ Page({
     }, ()=>{
       this.getData(this.data.page);
     })
+  },
+  itemClick(e){
+    wx.navigateTo({
+      url: `./detial/detail?id=${e.currentTarget.dataset.id}`
+    })
   }
 })
  

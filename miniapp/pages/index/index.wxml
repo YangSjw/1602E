@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view>
-  <view wx:for="{{list}}" class="item">
+  <view wx:for="{{list}}" class="item" wx:key="{{index}}" bindtap="itemClick" data-id="{{item.restaurant.id}}">
     <view class="info">
       <image class="cover" src="{{item.restaurant.image_path}}"/>
       <view>

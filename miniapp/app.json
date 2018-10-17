@@ -4,7 +4,8 @@
         "pages/logs/logs",
         "pages/discover/discover",
         "pages/order/order",
-        "pages/my/my"
+        "pages/my/my",
+        "pages/index/detial/detail"
     ],
     "window": {
         "backgroundTextStyle": "light",
