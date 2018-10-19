@@ -46,8 +46,8 @@ Page({
     // 获取canvas实例
     let canvas = wx.createCanvasContext("canvas");
     this.canvas = canvas;
+    
     // 绘制吴彦祖
-
     canvas.drawImage('../../assets/timg.png', 0,0,750,975,0,0,375,487);
     canvas.draw();
     canvas.save();
@@ -159,6 +159,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return {
+      title: '发现页转发',
+      path: '/pages/index/index',
+      imageUrl: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540522235&di=7cbe26b96eecfe2319616fb64ca13c37&imgtype=jpg&er=1&src=http%3A%2F%2F07imgmini.eastday.com%2Fmobile%2F20180914%2F20180914191639_971c57c66b2167ab18af26a9ecd05daf_1.jpeg'
+    }
   }
 })

@@ -22,3 +22,5 @@
 
 <button bindtap="selectImg">选择图片</button>
 <button bindtap="saveImg">保存图片</button>
+
+<button open-type="share">转发</button>
