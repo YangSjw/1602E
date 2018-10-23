@@ -1,0 +1,51 @@
+
+.cont{
+    background: #f4f4f4;
+}
+.list{
+    width: 100%;
+    margin: 10px 10px 0px 10px;
+    display: flex;
+    background: #fff;
+    position: relative;
+    dd{
+       
+        a{
+            img{
+                width: 100px;
+                height: 100px;  
+            }
+        }
+        .num{
+            position: absolute;
+            left:20px;
+            bottom: 0px;
+            z-index: 99;
+            color: #ccc;
+        }
+    }
+    dt{
+        flex:1;
+        margin-left: 15px;
+    }
+}
+.title{
+    font-size: 16px;
+    color: #000;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+.icon{
+    position: absolute;
+    right:20px;
+    bottom:50px;
+    color:#b2b2b2;
+}
+.sing{
+    list-style: none;
+    line-height: 2;
+    
+}
+.singNmae{
+    color:#000;
+}
