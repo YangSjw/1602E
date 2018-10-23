@@ -9,6 +9,8 @@ const app = dva();
 
 // 3. Model
 app.model(require('./models/index').default);
+app.model(require('./models/Rank').default);
+app.model(require('./models/detail').default);
 
 // 4. Router
 app.router(require('./router').default);
