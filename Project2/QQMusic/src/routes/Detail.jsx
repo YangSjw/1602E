@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'dva';
 import styles from "./css/Detail/detail.scss";
+import Lrc from '../components/Lrc';
 import { Icon } from 'antd';
 
+const src = 'http://dl.stream.qqmusic.qq.com/C400002ejEdb4KTwBw.m4a?guid=7661326472&vkey=A5E6D6B501FD9A4F5CB0F938547391C99AA9B0259AA8FFF5613D9910E060130F3C83BDBD2096DC539E59F2DED6686B8307B01A653354396E&uin=0&fromtag=38';
 class Detail extends React.PureComponent {
   constructor(){
     super();
@@ -83,7 +85,7 @@ class Detail extends React.PureComponent {
       </div>
 
       {/* 音频播放组件 */}
-      <audio ref="audio"  onTimeUpdate={()=>this.timeUpdate()} controls src="http://111.202.98.144/amobile.music.tc.qq.com/C400001dPKD40OUxFz.m4a?guid=7661326472&vkey=6D4D85F588675B6C3C996BF0481CFD0E8EC4B48780FF2767237226BFA55C5C886B0027617865E93F4234D88B8EA8EB47D15217D09D595B9A&uin=0&fromtag=38"></audio>
+      <audio ref="audio"  onTimeUpdate={()=>this.timeUpdate()} controls src={src}></audio>
       {/* 音频播放组件控制台 */}
       <section>
         <Icon type={this.state.playing?'pause-circle': 'play-circle'} onClick={this.play.bind(this)}></Icon>
@@ -94,6 +96,8 @@ class Detail extends React.PureComponent {
           onTouchEnd={this.touchEnd.bind(this)}>
           <span style={{"width": this.state.currentTime/this.refs.audio.duration*100+'%'}}></span>
         </p>:null}
+        <Lrc currentTime={this.state.currentTime}/>
+        {/* <Lrc/> */}
       </section>
       <div className={styles.list}>
         <p style={{ paddingLeft: "13px" }}>排行榜  共100首</p>
