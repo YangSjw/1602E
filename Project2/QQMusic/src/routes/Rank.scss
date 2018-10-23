@@ -1,6 +1,8 @@
 
 .cont{
     background: #f4f4f4;
+    height: 100%;
+    overflow: scroll;
 }
 .list{
     width: 100%;
@@ -9,11 +11,11 @@
     background: #fff;
     position: relative;
     dd{
-       
+
         a{
             img{
                 width: 100px;
-                height: 100px;  
+                height: 100px;
             }
         }
         .num{
@@ -44,7 +46,7 @@
 .sing{
     list-style: none;
     line-height: 2;
-    
+
 }
 .singNmae{
     color:#000;
