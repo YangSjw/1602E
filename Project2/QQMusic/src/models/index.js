@@ -1,4 +1,4 @@
-import {getIndex} from '../services/index.js';
+import { getIndex } from '../services/index.js';
 
 export default {
 
@@ -15,7 +15,7 @@ export default {
   },
 
   effects: {
-    *getIndex({payload}, {call , put}){
+    *getIndex({ payload }, { call, put }) {
       let data = yield call(getIndex);
       console.log('data...', data);
       yield put({
