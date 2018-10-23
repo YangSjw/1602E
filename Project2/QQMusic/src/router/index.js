@@ -1,5 +1,7 @@
 import React from 'react';
 import Tab from '../routes/TabPage';
+import Rank from '../routes/RankPage';
+import Search from '../routes/SearchPage'
 
 import Index from '../routes/IndexPage';
 import Rank from '../routes/Rank';
@@ -16,12 +18,16 @@ export default {
       component: Index
     },
     {
-      path: '/tab/Rank',
+      path: '/tab/rank',
       component: Rank
+    },
+    {
+      path: '/tab/search',
+      component: Search
     }]
   },
   {
-    path: "/Detail",
+    path: "/detail",
     component: Detail
   }]
 }

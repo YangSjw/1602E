@@ -1,12 +1,12 @@
-import { getIndex } from '../services/index.js';
+import {getList} from '../services/index';
 
 export default {
 
-  namespace: 'index',
+  namespace: 'rank',
 
   state: {
-    slider: [],
-    radioList: []
+    topList: []
+    
   },
 
   subscriptions: {
@@ -15,9 +15,9 @@ export default {
   },
 
   effects: {
-    *getIndex({ payload }, { call, put }) {
-      let data = yield call(getIndex);
-      console.log('data...', data);
+    *getList({payload}, {call , put}){
+      let data = yield call(getList);
+      console.log('data...', data.data.data);
       yield put({
         type: 'updateState',
         payload: data.data.data
@@ -29,7 +29,7 @@ export default {
   reducers: {
     updateState(state, action) {
       console.log({ ...state, ...action.payload })
-      return { ...state, ...action.payload };
+      return { ...state, ...{payload: action.payload }};
     },
   },
 

@@ -11,7 +11,9 @@ export default class TabPage extends React.PureComponent{
         <NavLink to="/tab/rank">排行榜</NavLink>
         <NavLink to="/tab/search">搜索</NavLink>
       </header>
-      <RouterView routes={this.props.routes}></RouterView>
+      <section className={styles.container}>
+        <RouterView routes={this.props.routes} className={styles.container}></RouterView>
+      </section>
     </Fragment>
   }
 }

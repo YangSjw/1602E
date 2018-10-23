@@ -12,5 +12,3 @@ export function getRank() {
 export function getDetail() {
   return request('/api/v8/fcg-bin/fcg_v8_toplist_cp.fcg?g_tk=5381&uin=0&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&tpl=3&page=detail&type=top&topid=4&_=1540257815719')
 }
-
-
