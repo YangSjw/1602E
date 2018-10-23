@@ -1,65 +1,48 @@
-import React,{Fragment} from 'react';
+import React from 'react';
 import { connect } from 'dva';
-import { constants } from 'os';
-import styles from './Rank.scss';
-import { Carousel, Icon } from 'antd';
-
-class RankPage extends React.PureComponent{
-  componentDidMount(){
-    this.props.getList();
-  }
-  render(){
-    let {topList} = this.props;
-    console.log(topList)
-    if(!topList || topList.length){
-      return null;
+import { NavLink } from "dva/router"
+import styles from "./RankPage.scss"
+class Rank extends React.PureComponent {
+    componentDidMount() {
+        this.props.getRank();
     }
-    
-    return  <div className={styles.cont}>
-     {topList.topList.map((item,index)=>{
-       return <div key={index} className={styles.list}>
-                <dd>
-                  <a href=''>
-                    <img src={item.picUrl}></img>
-                  </a>
-                  <p className={styles.num}>{item.listenCount}</p>
-                </dd>
-                <dt>
-                  <div className={styles.title}>{item.topTitle}</div>
-                  {
-                    item.songList.map((items,indexs)=>{
-                      return <div key={indexs}>
-                        <li className={styles.sing}>
-                          <span className={styles.singNmae}>{items.songname}</span>
-                          <span>--</span>
-                          <span>{items.singername}</span>
-                        </li>
-                      </div>
-                    })
-                 } 
-                </dt>
-                <Icon type="right" style={{ fontSize: '12px'}} className={styles.icon}></Icon>
-              </div> 
-     })}
-    </div>;
-  }
-}
-
-
-const mapStateToProps = (state)=>{
-  console.log('state', state)
-  return {
-    topList:state.rank.payload
-  }
-  
-}
-const mapDispatchToProps = (dispatch)=>{
-  return {
-    getList:()=>{
-        dispatch({
-            type:'rank/getList'
-        })
+    render() {
+        // console.log(this.props.topList)
+        let { topList } = this.props;
+        return <NavLink className={styles.wrap} to="/detail">
+            {
+                topList && topList.map((item, index) => {
+                    return <dl key={index}>
+                        <dt>
+                            <img src={item.picUrl} alt="" />
+                        </dt>
+                        <dd>
+                            <p>{item.topTitle}</p>
+                            <ol>
+                                {item.songList.map((ite, ind) => {
+                                    return <li key={ind}>{ite.songname}-{ite.singername}</li>
+                                })
+                                }
+                            </ol>
+                        </dd>
+                    </dl>
+                })
+            }
+        </NavLink>
     }
-  }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(RankPage);
+
+
+const mapStateToProps = (state) => {
+    return { ...state.rank }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getRank: () => {
+            dispatch({
+                type: 'rank/getRank'
+            })
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Rank);

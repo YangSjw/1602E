@@ -6,6 +6,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  background: #fff;
   a{
     position: relative;
     display: block;
@@ -26,7 +27,7 @@
 }
 :global{
   a.active{
-    color: #31c27c;
+    color: #31c27c !important;
   }
   a.active:after{
     content: "";

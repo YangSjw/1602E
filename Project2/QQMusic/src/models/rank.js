@@ -1,36 +1,33 @@
-import {getList} from '../services/index';
-
+import { getRank } from '../services/index.js';
 export default {
 
-  namespace: 'rank',
+    namespace: 'rank',
 
-  state: {
-    topList: []
-    
-  },
+    state: {
 
-  subscriptions: {
-    setup({ dispatch, history }) {  // eslint-disable-line
     },
-  },
 
-  effects: {
-    *getList({payload}, {call , put}){
-      let data = yield call(getList);
-      console.log('data...', data.data.data);
-      yield put({
-        type: 'updateState',
-        payload: data.data.data
-      })
-    }
-    
-  },
-
-  reducers: {
-    updateState(state, action) {
-      console.log({ ...state, ...action.payload })
-      return { ...state, ...{payload: action.payload }};
+    subscriptions: {
+        setup({ dispatch, history }) {  // eslint-disable-line
+        },
     },
-  },
+
+    effects: {
+        *getRank({ payload }, { call, put }) {
+            let dataRank = yield call(getRank);
+            console.log('dataRank...', dataRank.data.data);
+            yield put({
+                type: 'updateState',
+                payload: dataRank.data.data
+            })
+        }
+    },
+
+    reducers: {
+        updateState(state, action) {
+            console.log({ ...state, ...action.payload })
+            return { ...state, ...action.payload };
+        },
+    },
 
 };
